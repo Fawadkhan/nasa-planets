@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "buildCommand": "next build",
+    "buildCommand": "npm run deploy",
     "builds": [
       {
         "src": "server/server.js",
