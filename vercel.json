@@ -4,6 +4,8 @@
       {
         "src": "server/server.js",
         "use": "@now/node",
+      },
+      {
         "buildCommand": "next build"
       }
     ],
