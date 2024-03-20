@@ -1,4 +1,4 @@
-const API_URL = process.env.HOME_URL || 'http://localhost:8000';
+const API_URL = process.env.HOME_URL || 'https://nasa-planets-j83t.vercel.app';
 
 // TODO: Once API is ready.
 // Load planets and return as JSON.
