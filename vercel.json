@@ -1,16 +1,4 @@
 {
     "version": 2,
-    "buildCommand": "npm run deploy",
-    "builds": [
-      {
-        "src": "server/server.js",
-        "use": "@now/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "server/server.js"
-      }
-    ]
+    "buildCommand": "npm run deploy"
   }
