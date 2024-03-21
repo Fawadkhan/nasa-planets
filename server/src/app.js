@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 const morgan = require('morgan');
 
 const planetsRouter  = require('./routes/planets/planets.router');
@@ -10,9 +9,11 @@ const launchesRouter = require('./routes/launches/launches.router');
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://nasa-client-eight.vercel.app'
-}));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 app.use(morgan('combined'));
 
