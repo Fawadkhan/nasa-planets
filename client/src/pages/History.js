@@ -3,7 +3,7 @@ import { Appear, Table, Paragraph } from "arwes";
 
 const History = props => {
   const tableBody = useMemo(() => {
-    return props.launches?.filter((launch) => !launch.upcoming)
+    return props.launches?.filter((launch) => !launch.upcoming || launch.upcoming === null)
       .map((launch) => {
         return <tr key={String(launch.flightNumber)}>
           <td>

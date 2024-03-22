@@ -58,6 +58,7 @@ const AppLayout = props => {
     abortLaunch,
   } = useLaunches(onSuccessSound, onAbortSound, onFailureSound);
 
+  console.log("launches", launches)
   const planets = usePlanets();
   
   return <div className={classes.content}>

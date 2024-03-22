@@ -10,7 +10,7 @@ const app = express();
 
 // CORS middleware setup
 app.use(cors({
-    origin: 'https://nasa-client-eight.vercel.app' // Allow requests from this origin
+    origin: 'http://localhost:3000' // Allow requests from this origin
 }));
 
 app.use(morgan('combined'));
