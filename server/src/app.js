@@ -5,6 +5,7 @@ const morgan = require('morgan');
 
 const planetsRouter  = require('./routes/planets/planets.router');
 const launchesRouter = require('./routes/launches/launches.router');
+const crudRouter = require('./routes/crud/crud.router');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public' )));
 app.use(planetsRouter);
 app.use(launchesRouter);
+app.use(crudRouter);
 
 // Handle all other routes by serving the index.html
 app.get('/*', (req, res) => {
