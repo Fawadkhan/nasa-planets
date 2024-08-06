@@ -1,4 +1,4 @@
-const API_URL = process.env.HOME_URL || 'http://localhost:8000/v1';
+const API_URL = process.env.HOME_URL;
 
 // TODO: Once API is ready.
 // Load planets and return as JSON.

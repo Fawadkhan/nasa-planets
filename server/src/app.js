@@ -12,8 +12,10 @@ const crudRouter = require('./routes/crud/crud.router');
 const app = express();
 
 // CORS middleware setup
+// CORS middleware setup
+const allowedOrigins = [process.env.CORS_ORIGIN || '*'];
 app.use(cors({
-    origin: 'https://nasa-planets-j83t.vercel.app'
+    origin: allowedOrigins,
 }));
 
 app.use(morgan('combined'));
