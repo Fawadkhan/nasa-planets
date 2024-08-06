@@ -1,30 +1,46 @@
 
-const {launches} = require('../../models/launches.model');
+const {launchesHasId, addNewLaunch, getAllLaunches, abortLaunch} = require('../../models/launches.model');
 
-const getAllLaunches = (req, res) => {
-  return res.status(200).json(Array.from(launches.values()));
+
+ const httpGetAllLaunches = async (req, res) => {
+  return res.status(200).json(await getAllLaunches());
 }
 
-const postLaunch = (req, res) => {
+const postLaunch = async (req, res) => {
   const launch = req.body;
-  launches.set(launch.flightNumber, launch);
+  if(!launch.mission || !launch.rocket || !launch.launchDate || !launch.target) {
+    return res.status(400).json({
+      error: 'Missing required launch property'
+    });
+  }
+  await addNewLaunch(launch);
   return res.status(200).json(launch);
 }
 
-const deleteLaunch = (req, res) => {
+const deleteLaunch = async(req, res) => {
   const flightNumber = req.params.id;
-  // console.log('launches ===>>', launches.get(flightNumber.toString()))
-  console.log('typeOf', typeof flightNumber)
-  // change type to number 
-  const aborted = launches.get(Number(flightNumber));
-  console.log("aborted ---->", aborted);
-  aborted.upcoming = false;
-  aborted.success = false;
-  return res.status(200).json(Array.from(launches.values()));
+  const aborted = await launchesHasId(flightNumber);
+  if(!aborted) {
+    return res.status(404).json({
+      error: 'Launch not found'
+    });
+  } 
+    // await saveLaunches(aborted)
+   const abortedLaunch =  await abortLaunch(flightNumber);
+   if(!abortedLaunch) {
+      return res.status(400).json({
+        error: 'Launch not aborted'
+      });
+    } else {
+      return res.status(200).json({
+        ok: 'Launch aborted'
+      });
+    }
 }
 
+
 module.exports = {
-    getAllLaunches,
+    httpGetAllLaunches,
     // POST request to add a new launch
     postLaunch,
     // DELETE request to abort a launch

@@ -1,15 +1,14 @@
-const { users } = require("../../models/users.model");
+const users = require('../../models/users.model');
 
-const getUser =  (req, res) => {
-    // res.send(Array.from(users.values()))
+const getUser =  (_req , res ) => {
    return res.status(200).json(Array.from(users.values()));
   }
 
-  const getUserById = (req, res) => {
+  const getUserById = (req , res ) => {
     const userId = req.params.id;
    return res.send(`User ${userId}`);
   }
-  module.exports = {
+module.exports = {
     getUser,
     getUserById
   }
