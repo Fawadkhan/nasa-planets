@@ -1,5 +1,4 @@
 const API_URL = process.env.HOME_URL;
-console.log("API URL", process.env)
 
 // TODO: Once API is ready.
 // Load planets and return as JSON.
@@ -11,6 +10,7 @@ async function httpGetPlanets() {
 async function httpGetLaunches() {
   const response = await (await fetch(`${API_URL}/launches`)).json()
   console.log("Response", response);
+  console.log("API URL", API_URL, process.env)
    response.sort((a, b) => {
     return a.flightNumber - b.flightNumber;
   });
