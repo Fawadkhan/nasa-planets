@@ -13,7 +13,7 @@ const app = express();
 
 // CORS middleware setup
 app.use(cors({
-    origin: 'http://localhost:3000' // Allow requests from this origin
+    origin: 'https://nasa-planets-j83t.vercel.app'
 }));
 
 app.use(morgan('combined'));
