@@ -10,7 +10,7 @@
     "serve": "npm run dev --prefix server",
     "client": "npm run start --prefix client",
     "watch": "npm run serve & npm run client",
-    "deploy": "npm run build --prefix client && npm start --port 8000 --prefix server",
+    "deploy": "npm run build --prefix client && npm start --prefix server",
     "test-client": "npm run test --prefix client",
     "test-server": "npm run test --prefix server",
     "test": "npm run test-server && npm run test-client"
