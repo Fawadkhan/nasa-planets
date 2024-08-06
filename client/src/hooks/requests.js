@@ -1,4 +1,5 @@
 const API_URL = process.env.HOME_URL;
+console.log("API URL", process.env)
 
 // TODO: Once API is ready.
 // Load planets and return as JSON.
