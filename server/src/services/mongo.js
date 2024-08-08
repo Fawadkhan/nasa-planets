@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const MONGO_URL = process.env.MONGO_URL || 'mongodb+srv://fawadkhn15:Testing123!@cluster0.izc9fon.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const MONGO_URL = process.env.MONGO_URL
+
+console.log("MONGO_URL PROCESS ENV", process.env)
 
 mongoose.connection.once('connected', () => {
   console.log('========================= Mongoose connected ==========================');
