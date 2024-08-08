@@ -1,4 +1,5 @@
-const API_URL = `${process.env.HOME_URL}` || 'http://localhost:8000';
+const API_URL = `${process.env.HOME_URL}/v1`;
+require('dotenv').config();
 
 // TODO: Once API is ready.
 // Load planets and return as JSON.
