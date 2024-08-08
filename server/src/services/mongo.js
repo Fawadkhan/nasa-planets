@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const MONGO_URL = process.env.MONGODB_URI || process.env.REACT_APP_MONGODB_URI
+const MONGO_URL = `${process.env.MONGODB_URI}` || `${process.env.REACT_APP_MONGODB_URI}`
 
 console.log("MONGO_URL PROCESS ENV", process.env)
 
