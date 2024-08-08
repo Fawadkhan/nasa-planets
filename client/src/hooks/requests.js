@@ -1,4 +1,4 @@
-const API_URL = `/v1`;
+const API_URL = `v1`;
 
 
 // TODO: Once API is ready.
