@@ -1,9 +1,10 @@
-const API_URL = `${process.env.HOME_URL}/v1`;
+const API_URL = `${process.env.HOME_URL}` || 'http://localhost:8000';
 
 // TODO: Once API is ready.
 // Load planets and return as JSON.
 async function httpGetPlanets() {
   const response = await fetch(`${API_URL}/planets`);
+
   return await response.json();
 }
 
