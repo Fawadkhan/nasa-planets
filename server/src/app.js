@@ -11,8 +11,6 @@ const crudRouter = require('./routes/crud/crud.router');
 
 const app = express();
 
-// CORS middleware setup
-// CORS middleware setup
 const allowedOrigins = [process.env.CORS_ORIGIN || '*'];
 app.use(cors({
     origin: allowedOrigins,
