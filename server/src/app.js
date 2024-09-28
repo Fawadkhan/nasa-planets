@@ -19,13 +19,12 @@ app.use(cors({
 
 app.use(morgan('combined'));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'public' )));
+app.use(express.static(path.join(__dirname, '../../clients/build')));
 app.use('/v1',api);
-app.use(crudRouter);
+app.use('/v1', crudRouter); 
 
 // Handle all other routes by serving the index.html
-app.get('/*', (_req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+app.get('*', (_req, res) => {
+    res.sendFile(path.join(__dirname, '../../clients/build', 'index.html'));
 });
-
 module.exports = app;
