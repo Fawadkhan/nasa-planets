@@ -14,7 +14,7 @@
     "test-client": "npm run test --prefix client",
     "test-server": "npm run test --prefix server",
     "test": "npm run test-server && npm run test-client",
-    "build": "cd clients && npm install && npm run build",
+    "build": "cd client && npm install && npm run build",
     "start": "node server/src/server.js"
   },
   "keywords": [],
