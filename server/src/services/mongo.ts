@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGO_URL = "mongodb+srv://fawadkhn15:HungryRaven.123@cluster0.izc9fon.mongodb.net/test" 
+
 
 
 // console.log("MONGO_URL PROCESS ENV", process.env)
