@@ -1,0 +1,53 @@
+import { Launch, Planet } from "../types";
+
+const API_URL = process.env.NODE_ENV === 'production' ? '/v1' : 'http://localhost:8000/v1';
+
+// TODO: Once API is ready.
+// Load planets and return as JSON.
+async function httpGetPlanets(): Promise<Planet[]> {
+  const response = await fetch(`${API_URL}/planets`);
+
+  return await response.json();
+}
+
+async function httpGetLaunches(): Promise<Launch[]> {
+  const response: Launch[] = await (await fetch(`${API_URL}/launches`)).json()
+  console.log("Response", response);
+  console.log("API URL", API_URL, process.env)
+   response.sort((a, b) => {
+    return a.flightNumber - b.flightNumber;
+  });
+  return response
+  // Load launches, sort by flight number, and return as JSON.
+}
+
+async function httpSubmitLaunch(launch: Record<string, unknown>) {
+  // TODO: Once API is ready.
+  // Submit given launch data to launch system.
+  const response = await fetch(`${API_URL}/launches`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(launch),
+  });
+
+  return response.status;
+
+}
+
+async function httpAbortLaunch(id: number) {
+  const response = await fetch(`${API_URL}/launches/${id}`, {
+    method: 'DELETE',
+  });
+  return response.status;
+  // TODO: Once API is ready.
+  // Delete launch with given ID.
+}
+
+export {
+  httpGetPlanets,
+  httpGetLaunches,
+  httpSubmitLaunch,
+  httpAbortLaunch,
+};
